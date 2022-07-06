@@ -1,0 +1,195 @@
+@import "variables";
+
+body {
+  font-family: sans-serif;
+  position: relative;
+}
+section {
+  overflow: hidden;
+}
+// ******** SECTION BG ********* //
+.bg-section {
+  background-color: #f6f9fe;
+}
+// ******** TITLE ********* //
+.title-before {
+  background-color: #e7f1fd;
+}
+
+.navbar-light {
+  .navbar-nav .nav-link {
+    position: relative;
+    transition: 0.3s;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background-color: $blue;
+      transition: inherit;
+    }
+    &.active,
+    &:hover {
+      color: $blue;
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+}
+//********* HEADER ***********//
+#header {
+  height: 95vh;
+  background: url(../img/hero-bg.jpg) center center/cover;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(16, 110, 234, 0.1) 100%
+    );
+  }
+}
+//********* MODAL ***********//
+
+#exampleModal {
+  object {
+    height: 80vh;
+  }
+  &.fade .modal-dialog {
+    transition: transform 0.5s ease-out;
+    transform: scale(0);
+  }
+  &.show .modal-dialog {
+    transform: scale(1);
+  }
+}
+
+//********* ABOUT ***********//
+
+#about .about-icon {
+  width: 50px;
+  height: 50px;
+}
+//********* progress ***********//
+.progress-div .progress-bar {
+  transition: 1s;
+  width: 0;
+}
+//********* Countter ***********//
+.counter-div .icon {
+  width: 50px;
+  height: 50px;
+}
+
+//********* Clients ***********//
+
+.client-img:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
+}
+
+//************ Servise-box **************//
+.servise-box {
+  .card-overlaye {
+    inset: 0;
+  }
+  & > * {
+    position: relative;
+    transition: 0.5s;
+  }
+  &:hover {
+    .card-overlaye {
+      top: 0 !important;
+    }
+    > * {
+      color: white !important;
+    }
+  }
+}
+//************ Slider **************//
+.slider-div {
+  background: url(../img/testimonials-bg.jpg) center center/cover;
+
+  &::before {
+    inset: 0;
+    content: "";
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+  }
+  #carouselExampleCaptions {
+    height: 300px;
+  }
+  .carousel-item img {
+    width: 150px;
+    height: 150px;
+  }
+}
+//************ Portfolio **************//
+
+#portfolio {
+  .list-group {
+    li {
+      cursor: pointer;
+    }
+  }
+}
+
+//************ Filter Items **************//
+.filter-div {
+  > a {
+    height: 350px;
+    &.hidden {
+      display: none;
+    }
+    &.active {
+      display: block;
+      animation: 0.8s show ease-in-out;
+    }
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+//************Contact Us **************//
+
+#contact i {
+  width: 50px;
+  height: 50px;
+  border: 1px dashed;
+  line-height: 50px;
+}
+
+//************  Footer  **************//
+
+#footer .footer-list li {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    border: 5px solid transparent;
+    border-left-color: $blue;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
